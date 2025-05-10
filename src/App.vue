@@ -1,197 +1,138 @@
-<script setup lang="ts">
-import Header from "./components/Header.vue"
-import Logo from "./assets/4f6e398e2bacebf2c4322d4e8dca0e8a.png"
+<script lang="ts" setup>
+import { ref, onMounted, computed, type CSSProperties } from "vue";
+import Header from "./components/Header.vue";
 import Typer from "./components/Typer.vue";
-import EChart from "./components/EChart.vue";
+import MainContent from "./components/MainContent.vue";
+import localforage from "localforage";
+import { getNetworthData, setNetworthData } from "./data";
+import type { AppData } from "./types";
 
-const customMap = {
-  10000: '10k',
-  20000: '20k',
-  30000: '30k',
-  40000: '40k',
-  50000: '50k',
-  60000: '60k',
-  70000: '70k',
-  80000: '80k',
-  90000: '90k',
-  100000: '💯k' // 你可以完全自定义映射值
+localforage.config({
+  driver: [
+    localforage.INDEXEDDB,
+    localforage.WEBSQL,
+    localforage.LOCALSTORAGE,
+  ],
+  name: "networth-generate",
+  version: 1.0,
+  storeName: "meow",
+  description: "networth-generate",
+});
+
+const data = ref<AppData>(getNetworthData());
+const isLoaded = ref(false);
+
+const loadData = async () => {
+  try {
+    const savedData = await localforage.getItem("nw") as AppData | null;
+    if (savedData) {
+      setNetworthData(savedData);
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    isLoaded.value = true;
+  }
 };
 
-const chartOptions = {
-  animation: false,
-  backgroundColor: 'transparent',
-  textStyle: {
-    color: 'rgba(255,255,255,0.85)',
-    fontFamily: 'Arial',
-    fontSize: 14
-  },
-  title: {
-    text: 'Networth History',
-    left: 'center',
-    top: 20,
-    textStyle: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: 'rgba(255,255,255,0.95)'
-    }
-  },
-  tooltip: {
-    show: false
-  },
-  legend: {
-    show: false
-  },
-  xAxis: {
-    type: 'category',
-    data: ['1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10'],
-    axisLine: {
-      lineStyle: {
-        color: 'rgba(255,255,255,0.5)'
-      }
-    },
-    axisLabel: {
-      color: 'rgba(255,255,255,0.8)'
-    }
-  },
-  yAxis: {
-    type: 'value',
-    axisLine: {
-      lineStyle: {
-        color: 'rgba(255,255,255,0.5)'
-      }
-    },
-    axisLabel: {
-      color: 'rgba(255,255,255,0.8)',
-      formatter: function (value) {
-        return customMap[value] || (value / 1000 + 'k');
-      }
-    },
-    splitLine: {
-      lineStyle: {
-        color: 'rgba(255,255,255,0.1)'
-      }
-    }
-  },
-  series: [
-    {
-      name: 'NW',
-      type: 'line',
-      data: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000],
-      smooth: true,
-      symbol: 'none',
-      lineStyle: {
-        width: 3,
-        color: 'rgba(0,229,255,0.8)'
-      },
-      itemStyle: {
-        color: 'rgba(0,229,255,0.8)'
-      },
-      opacity: 0.85,
-      emphasis: {
-        disabled: true
-      },
-      areaStyle: {
-        color: {
-          type: 'linear',
-          x: 0,
-          y: 0,
-          x2: 0,
-          y2: 1,
-          colorStops: [
-            {
-              offset: 0,
-              color: 'rgba(0,229,255,0.4)'
-            },
-            {
-              offset: 1,
-              color: 'rgba(0,229,255,0)'
-            }
-          ]
-        }
-      }
-    }
-  ]
-};
-  </script>
+onMounted(async () => {
+  (window as any).$localforage = localforage;
+  await loadData();
+});
+
+const backGroundStyle = computed((): CSSProperties => {
+  const url = data.value?.userData?.backgroundUrl;
+  return {
+    backgroundImage: url ? `url("${url}")` : 'url("background.jpg")',
+  };
+});
+</script>
 
 <template>
-  <div class="background">
-    <Header
-        title="ATRI-BOT"
-        :logo="Logo"
-        info="v0.0.0-snapshot"
-    />
+  <div v-if="!isLoaded" class="loading-screen">
+    Loading...
+  </div>
 
+  <div v-else class="background" :style="backGroundStyle">
     <div class="content-area">
-      <div class="frosted-container">
-        <Typer :width="'90%'" :height="'65%'" :left="'5%'" :top="'3%'" :absolute="true" :border-radius="'16px'">
+      <Header
+          :info="data.userData.version"
+          :logo="data.userData.logo"
+          :title="data.userData.title"
+      />
 
-        </Typer>
-        <Typer :width="'90%'" :height="'26%'" :left="'5%'" :top="'71%'" :absolute="true" :border-radius="'16px'">
-          <EChart
-              :options="chartOptions"
-              width="100% "
-              height="100%"
-              top="0%"
-              left="0%"
-              :absolute="true"
-              background-color="rgba(255, 255, 255, 0.2)"
-              border-radius="16px"
-              border="1px solid #eee"
-              box-shadow="0 4px 20px rgba(0, 0, 0, 0.1)"
-          />
-        </Typer>
-
-      </div>
+      <Typer
+          :border-radius="'16px'"
+          :centered="true"
+          :height="'auto'"
+          :width="'90%'"
+          class="typer-container"
+      >
+        <MainContent 
+          :user-data="data.userData"
+          :item-categories="data.itemCategories"
+          :chart-options="data.chartOptions"
+        />
+      </Typer>
     </div>
   </div>
 </template>
 
-
 <style scoped>
 .background {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-image: url('assets/background.jpg');
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .content-area {
   position: absolute;
-  top: 5%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 30px;
+  overflow-y: auto;
 }
 
-.frosted-container {
-  width: 90%;
-  height: 85%;
-  padding: 2rem;
-  /*border-radius: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px) saturate(150%);
-  filter: blur(1px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);*/
+.typer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 80vh;
+  margin: 4% 0;
+  overflow: visible;
+}
+
+.loading-screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
 }
 </style>
 
 <style>
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 </style>
