@@ -53,8 +53,8 @@ const backgroundGradientStyle = computed(() => {
   }
 
   return {
-    background: `linear-gradient(90deg, ${currentColor}50 0%, ${nextColor}50 100%)`,
-    borderLeft: `3px solid ${currentColor}`
+    background: `linear-gradient(80deg, ${currentColor}A0 0%, ${nextColor}A0 100%)`,
+    borderLeft: `4px solid ${currentColor}`
   };
 });
 </script>
@@ -73,9 +73,9 @@ const backgroundGradientStyle = computed(() => {
           </template>
         </span>
       </div>
-    </div>
-    <div class="item-value">
-      <span class="value-wrapper">{{ value }}</span>
+      <div class="item-value">
+        <span class="value-wrapper">{{ value }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -94,10 +94,10 @@ const backgroundGradientStyle = computed(() => {
   min-width: 0;
   min-height: 48px;
   height: auto;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   position: relative;
   overflow: visible;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 
 .item-icon, .item-placeholder {
@@ -120,28 +120,32 @@ const backgroundGradientStyle = computed(() => {
   min-width: 0;
   overflow: visible;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
 }
 
 .item-name {
   font-size: 12px;
   font-weight: 600;
   line-height: 1.4;
-  word-break: keep-all;
+  word-break: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-  display: inline-block;
-  max-width: 100%;
+  flex: 1;
+  min-width: 0;
+  text-shadow: 1px 1px 2px black;
 }
 
 .text-wrapper {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   padding: 3px 6px;
   display: inline-block;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
   max-width: 100%;
   white-space: normal;
 }
@@ -153,10 +157,8 @@ const backgroundGradientStyle = computed(() => {
 .item-value {
   font-size: 12px;
   font-weight: 700;
-  margin-left: 8px;
   flex-shrink: 0;
-  align-self: flex-start;
-  margin-top: 2px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .value-wrapper {
@@ -167,5 +169,6 @@ const backgroundGradientStyle = computed(() => {
   display: inline-block;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
+  white-space: nowrap;
 }
 </style>
