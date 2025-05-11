@@ -1,14 +1,6 @@
 <script lang="ts" setup>
 import { computed, type CSSProperties } from 'vue';
 import utils from '../utils';
-import type { UserData } from '../types';
-
-// 使用UserData类型的子集
-type InfoProps = Pick<UserData, 
-  'playerHead' | 'profileName' | 'isCosmeticEnabled' | 'playerName' | 
-  'networthTotal' | 'networthShort' | 'nonSoulBoundTotal' | 'nonSoulBoundShort' | 
-  'purseValue' | 'bankValue' | 'essenceValue' | 'soulflowValue'
->;
 
 const props = defineProps<{
   head?: string;
