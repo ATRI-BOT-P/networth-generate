@@ -91,8 +91,9 @@ const cosmeticStyle = computed((): CSSProperties => ({
   gap: 8px;
   padding: 6px 10px;
   border-radius: 15px;
-  font-family: "Klee One", cursive;
-  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
   font-size: clamp(10px, 1.8vw, 14px);
   text-shadow: 1px 1px 2px black,

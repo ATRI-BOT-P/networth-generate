@@ -129,8 +129,9 @@ const backgroundGradientStyle = computed(() => {
 
 .item-name {
   font-size: 12px;
-  font-family: "Klee One", cursive;
-  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
   line-height: 1.4;
   word-break: break-word;
@@ -158,8 +159,9 @@ const backgroundGradientStyle = computed(() => {
 
 .item-value {
   font-size: 12px;
-  font-family: "Klee One", cursive;
-  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
   flex-shrink: 0;
   text-shadow: 1px 1px 2px black;

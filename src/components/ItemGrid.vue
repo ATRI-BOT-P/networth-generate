@@ -62,8 +62,9 @@ const props = defineProps<{
 
 .category-title {
   font-size: 16px;
-  font-family: "Klee One", cursive;
-  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
   letter-spacing: 1px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -71,8 +72,9 @@ const props = defineProps<{
 
 .category-value {
   margin-left: 10px;
-  font-family: "Klee One", cursive;
-  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-style: normal;
   color: #FFAA00;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
