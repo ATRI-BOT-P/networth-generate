@@ -129,7 +129,9 @@ const backgroundGradientStyle = computed(() => {
 
 .item-name {
   font-size: 12px;
+  font-family: "Klee One", cursive;
   font-weight: 600;
+  font-style: normal;
   line-height: 1.4;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -156,7 +158,9 @@ const backgroundGradientStyle = computed(() => {
 
 .item-value {
   font-size: 12px;
-  font-weight: 700;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  font-style: normal;
   flex-shrink: 0;
   text-shadow: 1px 1px 2px black;
 }

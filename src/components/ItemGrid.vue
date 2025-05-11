@@ -62,14 +62,18 @@ const props = defineProps<{
 
 .category-title {
   font-size: 16px;
-  font-weight: 700;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  font-style: normal;
   letter-spacing: 1px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .category-value {
   margin-left: 10px;
-  font-weight: 700;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  font-style: normal;
   color: #FFAA00;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }

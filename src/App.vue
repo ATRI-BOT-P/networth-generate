@@ -119,7 +119,9 @@ const backGroundStyle = computed((): CSSProperties => {
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  font-weight: bold;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  font-style: normal;
   background: #000;
   color: #fff;
 }

@@ -49,6 +49,9 @@ defineProps<{
   flex-shrink: 0;
   gap: 12px;
   white-space: nowrap;
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  font-style: normal;
   font-size: 12px;
 }
 
@@ -61,6 +64,9 @@ defineProps<{
 }
 
 .title {
+  font-family: "Klee One", cursive;
+  font-weight: 600;
+  font-style: normal;
   font-size: 20px;
   margin: 0;
   white-space: nowrap;
