@@ -1,4 +1,3 @@
-// 物品数据接口
 export interface ItemData {
     name: string;
     value: string;
@@ -8,7 +7,6 @@ export interface ItemData {
     isUpgraded?: boolean;
 }
 
-// 分类数据接口
 export interface CategoryData {
     title: string;
     titleColor?: string;
@@ -16,7 +14,6 @@ export interface CategoryData {
     items: ItemData[];
 }
 
-// 用户数据接口
 export interface UserData {
     title: string;
     logo: string;
@@ -36,22 +33,27 @@ export interface UserData {
     backgroundUrl?: string;
 }
 
-// 图表选项接口
 export interface ChartOptions {
     animation: boolean;
     backgroundColor: string;
     textStyle: {
+        fontSize: number,
+        fontFamily: string,
+        fontOpticalSizing: string,
+        fontWeight: string,
+        fontStyle: string,
         color: string;
-        fontFamily: string;
-        fontSize: number;
     };
     title: {
         text: string;
         left: string;
         top: number;
         textStyle: {
-            fontSize: number;
-            fontWeight: string;
+            fontSize: number,
+            fontFamily: string,
+            fontOpticalSizing: string,
+            fontWeight: string,
+            fontStyle: string,
             color: string;
         };
     };
@@ -123,7 +125,6 @@ export interface ChartOptions {
     }>;
 }
 
-// 应用数据接口
 export interface AppData {
     userData: UserData;
     itemCategories: CategoryData[];

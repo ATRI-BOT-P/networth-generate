@@ -19,7 +19,7 @@ localforage.config({
   description: "networth-generate",
 });
 
-const data = ref<AppData>(getNetworthData());
+const data = getNetworthData()
 const isLoaded = ref(false);
 
 const loadData = async () => {
@@ -90,18 +90,15 @@ const backGroundStyle = computed((): CSSProperties => {
 }
 
 .content-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 30px;
-  overflow-y: auto;
+  min-height: 100vh; /* 如果需要可以保留 */
 }
+
 
 .typer-container {
   display: flex;
@@ -134,7 +131,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow-x: hidden;
   overflow-y: auto;
 }
