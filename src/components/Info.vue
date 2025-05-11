@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, type CSSProperties } from 'vue';
+import {computed, type CSSProperties} from 'vue';
 import utils from '../utils';
 
 const props = defineProps<{
@@ -59,22 +59,22 @@ const cosmeticStyle = computed((): CSSProperties => ({
 
     <div class="right">
       <div class="purse">
-        <img src="../../public/purse.png" alt="Purse icon" class="purse-icon"/>
+        <img alt="Purse icon" class="purse-icon" src="../../public/purse.png"/>
         <span :style="{ color: '#ffdd00' }">{{ 'Purse: ' }}</span>
         <span :style="{ color: 'white' }">{{ purseValue || '0' }}</span>
       </div>
       <div class="bank">
-        <img src="../../public/bank.png" alt="Bank icon" class="bank-icon"/>
+        <img alt="Bank icon" class="bank-icon" src="../../public/bank.png"/>
         <span :style="{ color: '#FFAA00' }">{{ 'Bank: ' }}</span>
         <span :style="{ color: 'white' }">{{ bankValue || '0' }}</span>
       </div>
       <div class="essence">
-        <img src="../../public/essence.png" alt="Essence icon" class="essence-icon"/>
+        <img alt="Essence icon" class="essence-icon" src="../../public/essence.png"/>
         <span :style="{ color: '#ef00ff' }">{{ 'Essence: ' }}</span>
         <span :style="{ color: 'white' }">{{ essenceValue || '0' }}</span>
       </div>
       <div class="soulflow">
-        <img src="../../public/soulflow.png" alt="Soulflow icon" class="soulflow-icon"/>
+        <img alt="Soulflow icon" class="soulflow-icon" src="../../public/soulflow.png"/>
         <span :style="{ color: '#00adb5' }">{{ 'Soulflow: ' }}</span>
         <span :style="{ color: 'white' }">{{ soulflowValue || '0' }}</span>
       </div>

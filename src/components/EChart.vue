@@ -3,10 +3,10 @@
 </template>
 
 <script lang="ts" setup>
+import type {ECharts, EChartsOption} from 'echarts'
 import * as echarts from 'echarts'
-import { computed, type CSSProperties, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import type { ECharts, EChartsOption } from 'echarts'
-import type { ChartOptions } from '../types'
+import {computed, type CSSProperties, onBeforeUnmount, onMounted, ref, watch} from 'vue'
+import type {ChartOptions} from '../types'
 
 interface Props {
   options: EChartsOption | ChartOptions;

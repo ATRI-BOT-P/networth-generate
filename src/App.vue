@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { ref, onMounted, computed, type CSSProperties } from "vue";
+import {computed, type CSSProperties, onMounted, ref} from "vue";
 import Header from "./components/Header.vue";
 import Typer from "./components/Typer.vue";
 import MainContent from "./components/MainContent.vue";
 import localforage from "localforage";
-import { getNetworthData, setNetworthData } from "./data";
-import type { AppData } from "./types";
+import {getNetworthData, setNetworthData} from "./data";
+import type {AppData} from "./types";
 
 localforage.config({
   driver: [
@@ -53,7 +53,7 @@ const backGroundStyle = computed((): CSSProperties => {
     Loading...
   </div>
 
-  <div v-else class="background" :style="backGroundStyle">
+  <div v-else :style="backGroundStyle" class="background">
     <div class="content-area">
       <Header
           :info="data.userData.version"
@@ -68,10 +68,10 @@ const backGroundStyle = computed((): CSSProperties => {
           :width="'90%'"
           class="typer-container"
       >
-        <MainContent 
-          :user-data="data.userData"
-          :item-categories="data.itemCategories"
-          :chart-options="data.chartOptions"
+        <MainContent
+            :chart-options="data.chartOptions"
+            :item-categories="data.itemCategories"
+            :user-data="data.userData"
         />
       </Typer>
     </div>

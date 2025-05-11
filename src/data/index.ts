@@ -1,5 +1,5 @@
-import { ref } from "vue";
-import type { AppData } from "../types";
+import {ref} from "vue";
+import type {AppData} from "../types";
 
 const defaultData: AppData = {
     userData: {
@@ -198,4 +198,4 @@ function setNetworthData(newData: AppData): void {
     data.value = newData;
 }
 
-export { getNetworthData, setNetworthData };
+export {getNetworthData, setNetworthData};

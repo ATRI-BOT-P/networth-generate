@@ -18,11 +18,11 @@
     </div>
 
     <div class="items-container">
-      <ItemGrid :categories="itemCategories" />
+      <ItemGrid :categories="itemCategories"/>
     </div>
 
     <div class="chart-section">
-      <EChart :options="chartOptions" />
+      <EChart :options="chartOptions"/>
     </div>
   </div>
 </template>

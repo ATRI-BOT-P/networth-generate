@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import {computed} from 'vue';
 import utils from '../utils';
-import type { ItemData } from '../types';
+import type {ItemData} from '../types';
 
 interface RarityColors {
   [key: string]: string;
@@ -60,7 +60,7 @@ const backgroundGradientStyle = computed(() => {
 </script>
 
 <template>
-  <div class="item" :style="backgroundGradientStyle">
+  <div :style="backgroundGradientStyle" class="item">
     <div v-if="icon" class="item-icon">
       <img :src="icon" alt="Item icon"/>
     </div>
