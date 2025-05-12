@@ -1,73 +1,70 @@
 <script lang="ts" setup>
-import {computed, type CSSProperties, onMounted, ref} from "vue";
-import Header from "./components/Header.vue";
-import Typer from "./components/Typer.vue";
-import MainContent from "./components/MainContent.vue";
-import localforage from "localforage";
-import {getNetworthData, setNetworthData} from "./data";
-import type {AppData} from "./types";
+import {computed, type CSSProperties, onMounted, onUnmounted} from 'vue'
+import Header from './components/Header.vue'
+import Typer from './components/Typer.vue'
+import MainContent from './components/MainContent.vue'
+import localforage from 'localforage'
+import {getNetworthData, setNetworthData} from './data'
+import type {AppData} from './types'
+import "./app.css"
 
 localforage.config({
-  driver: [
-    localforage.INDEXEDDB,
-    localforage.WEBSQL,
-    localforage.LOCALSTORAGE,
-  ],
-  name: "networth-generate",
+  driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
+  name: 'networth-generate',
   version: 1.0,
-  storeName: "meow",
-  description: "networth-generate",
-});
+  storeName: 'meow',
+  description: 'networth-generate'
+})
 
 const data = getNetworthData()
-const isLoaded = ref(false);
+let intervalId: number
 
-const loadData = async () => {
-  try {
-    const savedData = await localforage.getItem("nw") as AppData | null;
-    if (savedData) {
-      setNetworthData(savedData);
-    }
-  } catch (error) {
-    console.error(error);
-  } finally {
-    isLoaded.value = true;
-  }
-};
+async function loadData() {
+  const saved = (await localforage.getItem('nw')) as AppData | null
+  if (saved) setNetworthData(saved)
+}
+
+async function syncData() {
+  const saved = (await localforage.getItem('nw')) as AppData | null
+  if (saved) setNetworthData(saved)
+}
+
+function onStorage(e: StorageEvent) {
+  if (e.key === 'nw' || e.key === null) syncData()
+}
 
 onMounted(async () => {
-  (window as any).$localforage = localforage;
-  await loadData();
-});
+  ;(window as any).$localforage = localforage
+  await loadData()
+  window.addEventListener('storage', onStorage)
+  intervalId = window.setInterval(syncData, 2000)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('storage', onStorage)
+  clearInterval(intervalId)
+})
 
 const backGroundStyle = computed((): CSSProperties => {
-  const url = data.value?.userData?.backgroundUrl;
-  return {
-    backgroundImage: url ? `url("${url}")` : 'url("background.jpg")',
-  };
-});
+  const url = data.value?.userData?.backgroundUrl
+  return {backgroundImage: `url("${url || 'background.jpg'}")`}
+})
 </script>
 
+
 <template>
-  <div v-if="!isLoaded" class="loading-screen">
-    Loading...
-  </div>
+  <div :style="backGroundStyle" class="background"></div>
+  <Header :info="data.userData.version" :logo="data.userData.logo" :title="data.userData.title"/>
 
-  <div v-else :style="backGroundStyle" class="background">
-    <div class="content-area">
-      <Header
-          :info="data.userData.version"
-          :logo="data.userData.logo"
-          :title="data.userData.title"
-      />
-
+  <div class="main-container">
+    <div class="typer-container-wrapper">
       <Typer
-          :border-radius="'16px'"
-          :centered="true"
-          :height="'auto'"
-          :width="'90%'"
+          :absolute="false"
+          :centered="false"
+          border-radius="16px"
           class="typer-container"
-      >
+          height="auto"
+          width="95%">
         <MainContent
             :chart-options="data.chartOptions"
             :item-categories="data.itemCategories"
@@ -78,61 +75,7 @@ const backGroundStyle = computed((): CSSProperties => {
   </div>
 </template>
 
-<style scoped>
-.background {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.content-area {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  min-height: 100vh; /* 如果需要可以保留 */
-}
-
-
-.typer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 80vh;
-  margin: 4% 0;
-  overflow: visible;
-}
-
-.loading-screen {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  background: #000;
-  color: #fff;
-}
-</style>
-
 <style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+
+
 </style>

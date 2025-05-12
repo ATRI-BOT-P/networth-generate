@@ -45,11 +45,13 @@ defineProps<{
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .info-section {
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .items-container {
@@ -58,6 +60,7 @@ defineProps<{
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .chart-section {
@@ -65,6 +68,7 @@ defineProps<{
   height: auto;
   min-height: 300px;
   margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px;
   box-sizing: border-box;
   overflow: visible;
