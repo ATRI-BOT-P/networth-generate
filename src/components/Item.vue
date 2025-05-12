@@ -1,15 +1,7 @@
 <script lang="ts" setup>
 import {computed} from 'vue';
 import utils from '../utils';
-import type {ItemData} from '../types';
-
-interface RarityColors {
-  [key: string]: string;
-}
-
-interface RarityMap {
-  [key: string]: string;
-}
+import type {ItemData, RarityColors, RarityMap} from '../types';
 
 const props = defineProps<ItemData>();
 

@@ -63,7 +63,7 @@ const utils = {
                         currentColor = '#FFFFFF';
                         break;
                 }
-                i++; // 跳过颜色代码
+                i++;
             } else {
                 result.push({
                     char: text[i],

@@ -3,30 +3,12 @@
 </template>
 
 <script lang="ts" setup>
-import type {ECharts, EChartsOption} from 'echarts'
+import type {ECharts} from 'echarts'
 import * as echarts from 'echarts'
 import {computed, type CSSProperties, onBeforeUnmount, onMounted, ref, watch} from 'vue'
-import type {ChartOptions} from '../types'
+import type {EChartProps} from '../types'
 
-interface Props {
-  options: EChartsOption | ChartOptions;
-  width?: string;
-  height?: string;
-  top?: string;
-  left?: string;
-  right?: string;
-  bottom?: string;
-  absolute?: boolean;
-  backgroundColor?: string;
-  padding?: string;
-  borderRadius?: string;
-  boxShadow?: string;
-  zIndex?: number | string;
-  border?: string;
-  theme?: string;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<EChartProps>(), {
   width: '100%',
   height: '400px',
   top: '0%',

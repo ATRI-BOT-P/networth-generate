@@ -1,3 +1,5 @@
+import type {EChartsOption} from "echarts";
+
 export interface ItemData {
     name: string;
     value: string;
@@ -130,4 +132,40 @@ export interface AppData {
     itemCategories: CategoryData[];
     customMap: Record<number, string>;
     chartOptions: ChartOptions;
+}
+
+export interface TyperProps {
+    width?: string
+    height?: string
+    top?: string
+    left?: string
+    borderRadius?: string
+    absolute?: boolean
+    centered?: boolean
+}
+
+export interface RarityColors {
+    [key: string]: string;
+}
+
+export interface RarityMap {
+    [key: string]: string;
+}
+
+export interface EChartProps {
+    options: EChartsOption | ChartOptions | EChartProps | any;
+    width?: string;
+    height?: string;
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+    absolute?: boolean;
+    backgroundColor?: string;
+    padding?: string;
+    borderRadius?: string;
+    boxShadow?: string;
+    zIndex?: number | string;
+    border?: string;
+    theme?: string;
 }

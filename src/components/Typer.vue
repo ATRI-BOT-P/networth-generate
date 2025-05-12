@@ -7,18 +7,10 @@
 <script lang="ts" setup>
 import type {CSSProperties} from 'vue'
 import {computed} from 'vue'
+import type {TyperProps} from "../types";
 
-interface Props {
-  width?: string
-  height?: string
-  top?: string
-  left?: string
-  borderRadius?: string
-  absolute?: boolean
-  centered?: boolean
-}
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<TyperProps>(), {
   width: '300px',
   height: '200px',
   top: '0',

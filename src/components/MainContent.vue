@@ -31,11 +31,12 @@
 import Info from './Info.vue';
 import ItemGrid from './ItemGrid.vue';
 import EChart from './EChart.vue';
+import type {CategoryData, ChartOptions, UserData} from "../types";
 
 defineProps<{
-  userData: any;
-  itemCategories: any[];
-  chartOptions: any;
+  userData: UserData;
+  itemCategories: CategoryData[];
+  chartOptions: ChartOptions;
 }>();
 </script>
 
