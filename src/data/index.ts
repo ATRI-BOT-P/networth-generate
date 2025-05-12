@@ -26,13 +26,54 @@ const defaultData: AppData = {
             titleColor: "#ff8900",
             value: "12.34B",
             items: [
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&bANYTHING", value: "100.00M", rarity: "DIVINE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&dANYTHING", value: "100.00M", rarity: "MYTHIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&6ANYTHING", value: "100.00M", rarity: "LEGENDARY", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&5ANYTHING", value: "100.00M", rarity: "EPIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&9ANYTHING", value: "100.00M", rarity: "RARE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&aANYTHING", value: "100.00M", rarity: "UNCOMMON", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&fANYTHING", value: "100.00M", rarity: "COMMON"}
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&bANYTHING",
+                    value: "100.00M",
+                    rarity: "DIVINE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&dANYTHING",
+                    value: "100.00M",
+                    rarity: "MYTHIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&6ANYTHING",
+                    value: "100.00M",
+                    rarity: "LEGENDARY",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&5ANYTHING",
+                    value: "100.00M",
+                    rarity: "EPIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&9ANYTHING",
+                    value: "100.00M",
+                    rarity: "RARE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&aANYTHING",
+                    value: "100.00M",
+                    rarity: "UNCOMMON",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&fANYTHING",
+                    value: "100.00M",
+                    rarity: "COMMON"
+                }
             ]
         },
         {
@@ -40,13 +81,48 @@ const defaultData: AppData = {
             titleColor: "#ffd500",
             value: "12.34B",
             items: [
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&bANYTHING", value: "100.00M", rarity: "DIVINE"},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&dANYTHING", value: "100.00M", rarity: "MYTHIC"},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&6ANYTHING", value: "100.00M", rarity: "LEGENDARY"},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&5ANYTHING", value: "100.00M", rarity: "EPIC"},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&9ANYTHING", value: "100.00M", rarity: "RARE"},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&aANYTHING", value: "100.00M", rarity: "UNCOMMON"},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&fANYTHING", value: "100.00M", rarity: "COMMON"}
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&bANYTHING",
+                    value: "100.00M",
+                    rarity: "DIVINE"
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&dANYTHING",
+                    value: "100.00M",
+                    rarity: "MYTHIC"
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&6ANYTHING",
+                    value: "100.00M",
+                    rarity: "LEGENDARY"
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&5ANYTHING",
+                    value: "100.00M",
+                    rarity: "EPIC"
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&9ANYTHING",
+                    value: "100.00M",
+                    rarity: "RARE"
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&aANYTHING",
+                    value: "100.00M",
+                    rarity: "UNCOMMON"
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&fANYTHING",
+                    value: "100.00M",
+                    rarity: "COMMON"
+                }
             ]
         },
         {
@@ -54,13 +130,54 @@ const defaultData: AppData = {
             titleColor: "#19ff00",
             value: "12.34B",
             items: [
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&bANYTHING", value: "100.00M", rarity: "DIVINE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&dANYTHING", value: "100.00M", rarity: "MYTHIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&6ANYTHING", value: "100.00M", rarity: "LEGENDARY", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&5ANYTHING", value: "100.00M", rarity: "EPIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&9ANYTHING", value: "100.00M", rarity: "RARE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&aANYTHING", value: "100.00M", rarity: "UNCOMMON", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&fANYTHING", value: "100.00M", rarity: "COMMON"}
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&bANYTHING",
+                    value: "100.00M",
+                    rarity: "DIVINE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&dANYTHING",
+                    value: "100.00M",
+                    rarity: "MYTHIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&6ANYTHING",
+                    value: "100.00M",
+                    rarity: "LEGENDARY",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&5ANYTHING",
+                    value: "100.00M",
+                    rarity: "EPIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&9ANYTHING",
+                    value: "100.00M",
+                    rarity: "RARE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&aANYTHING",
+                    value: "100.00M",
+                    rarity: "UNCOMMON",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&fANYTHING",
+                    value: "100.00M",
+                    rarity: "COMMON"
+                }
             ]
         },
         {
@@ -68,13 +185,54 @@ const defaultData: AppData = {
             titleColor: "#00fff7",
             value: "12.34B",
             items: [
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&bANYTHING", value: "100.00M", rarity: "DIVINE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&dANYTHING", value: "100.00M", rarity: "MYTHIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&6ANYTHING", value: "100.00M", rarity: "LEGENDARY", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&5ANYTHING", value: "100.00M", rarity: "EPIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&9ANYTHING", value: "100.00M", rarity: "RARE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&aANYTHING", value: "100.00M", rarity: "UNCOMMON", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&fANYTHING", value: "100.00M", rarity: "COMMON"}
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&bANYTHING",
+                    value: "100.00M",
+                    rarity: "DIVINE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&dANYTHING",
+                    value: "100.00M",
+                    rarity: "MYTHIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&6ANYTHING",
+                    value: "100.00M",
+                    rarity: "LEGENDARY",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&5ANYTHING",
+                    value: "100.00M",
+                    rarity: "EPIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&9ANYTHING",
+                    value: "100.00M",
+                    rarity: "RARE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&aANYTHING",
+                    value: "100.00M",
+                    rarity: "UNCOMMON",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&fANYTHING",
+                    value: "100.00M",
+                    rarity: "COMMON"
+                }
             ]
         },
         {
@@ -82,13 +240,54 @@ const defaultData: AppData = {
             titleColor: "#ff00ae",
             value: "12.34B",
             items: [
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&bANYTHING", value: "100.00M", rarity: "DIVINE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&dANYTHING", value: "100.00M", rarity: "MYTHIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&6ANYTHING", value: "100.00M", rarity: "LEGENDARY", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&5ANYTHING", value: "100.00M", rarity: "EPIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&9ANYTHING", value: "100.00M", rarity: "RARE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&aANYTHING", value: "100.00M", rarity: "UNCOMMON", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&fANYTHING", value: "100.00M", rarity: "COMMON"}
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&bANYTHING",
+                    value: "100.00M",
+                    rarity: "DIVINE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&dANYTHING",
+                    value: "100.00M",
+                    rarity: "MYTHIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&6ANYTHING",
+                    value: "100.00M",
+                    rarity: "LEGENDARY",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&5ANYTHING",
+                    value: "100.00M",
+                    rarity: "EPIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&9ANYTHING",
+                    value: "100.00M",
+                    rarity: "RARE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&aANYTHING",
+                    value: "100.00M",
+                    rarity: "UNCOMMON",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&fANYTHING",
+                    value: "100.00M",
+                    rarity: "COMMON"
+                }
             ]
         },
         {
@@ -96,13 +295,54 @@ const defaultData: AppData = {
             titleColor: "#FFFFFF",
             value: "12.34B",
             items: [
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&bANYTHING", value: "100.00M", rarity: "DIVINE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&dANYTHING", value: "100.00M", rarity: "MYTHIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&6ANYTHING", value: "100.00M", rarity: "LEGENDARY", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&5ANYTHING", value: "100.00M", rarity: "EPIC", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&9ANYTHING", value: "100.00M", rarity: "RARE", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&aANYTHING", value: "100.00M", rarity: "UNCOMMON", isUpgraded: true},
-                {icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL", name: "&fANYTHING", value: "100.00M", rarity: "COMMON"}
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&bANYTHING",
+                    value: "100.00M",
+                    rarity: "DIVINE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&dANYTHING",
+                    value: "100.00M",
+                    rarity: "MYTHIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&6ANYTHING",
+                    value: "100.00M",
+                    rarity: "LEGENDARY",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&5ANYTHING",
+                    value: "100.00M",
+                    rarity: "EPIC",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&9ANYTHING",
+                    value: "100.00M",
+                    rarity: "RARE",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&aANYTHING",
+                    value: "100.00M",
+                    rarity: "UNCOMMON",
+                    isUpgraded: true
+                },
+                {
+                    icon: "http://127.0.0.1:8006/PET_SKIN_BLACK_CAT_CATGIRL",
+                    name: "&fANYTHING",
+                    value: "100.00M",
+                    rarity: "COMMON"
+                }
             ]
         }
     ],
@@ -202,7 +442,7 @@ const defaultData: AppData = {
 }
 let data = ref<AppData>(defaultData);
 
-function getNetworthData() :Ref<UnwrapRef<AppData>, UnwrapRef<AppData> | AppData> {
+function getNetworthData(): Ref<UnwrapRef<AppData>, UnwrapRef<AppData> | AppData> {
     return data;
 }
 
