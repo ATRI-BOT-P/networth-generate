@@ -27,7 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 5%;
+    padding-top: calc(100px + 3%);
     padding-bottom: 3%;
 }
 
@@ -35,15 +35,18 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 0;
+    align-items: flex-start;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .typer-container {
-    width: 90%;
-    padding: 0;
+    max-width: 99.8%;
+    padding: 0.15rem 0.08rem;
+    font-size: 0.95rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    box-sizing: border-box;
 }

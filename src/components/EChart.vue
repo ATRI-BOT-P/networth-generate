@@ -10,14 +10,14 @@ import type { EChartProps } from '../types';
 
 const props = withDefaults(defineProps<EChartProps>(), {
     width: '100%',
-    height: '400px',
+    height: '420px',
     top: '0%',
     left: '0%',
     absolute: false,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     padding: '0',
-    borderRadius: '16px',
-    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+    borderRadius: '18px',
+    boxShadow: '0 5px 25px rgba(0, 0, 0, 0.12)',
     zIndex: 1,
     border: 'none',
     theme: '',
@@ -55,36 +55,42 @@ const initChart = () => {
 };
 
 const resizeChart = () => {
-    chartInstance?.resize();
+    if (chartInstance) {
+        chartInstance.resize();
+    }
 };
 
 watch(
     () => props.options,
-    (newVal) => {
-        chartInstance?.setOption(newVal, true);
+    () => {
+        if (chartInstance) {
+            chartInstance.setOption(props.options);
+        }
     },
     { deep: true },
 );
 
 onMounted(() => {
     initChart();
-    if (chartRef.value) {
-        resizeObserver = new ResizeObserver(() => {
-            resizeChart();
-        });
+    window.addEventListener('resize', resizeChart);
+
+    if (window.ResizeObserver && chartRef.value) {
+        resizeObserver = new ResizeObserver(resizeChart);
         resizeObserver.observe(chartRef.value);
     }
 });
 
 onBeforeUnmount(() => {
+    window.removeEventListener('resize', resizeChart);
+
+    if (resizeObserver && chartRef.value) {
+        resizeObserver.unobserve(chartRef.value);
+        resizeObserver = null;
+    }
+
     if (chartInstance) {
         chartInstance.dispose();
         chartInstance = null;
-    }
-    if (resizeObserver && chartRef.value) {
-        resizeObserver.unobserve(chartRef.value);
-        resizeObserver.disconnect();
-        resizeObserver = null;
     }
 });
 </script>

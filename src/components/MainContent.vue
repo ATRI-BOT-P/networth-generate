@@ -46,32 +46,34 @@ defineProps<{
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
-    margin-top: 0;
-    margin-bottom: 0;
+    padding: 15px 0;
+    margin: 0 auto;
 }
 
 .info-section {
-    padding: 10px;
     margin-bottom: 15px;
+    flex: 1.5;
 }
 
 .items-container {
     width: 100%;
-    padding: 10px;
+    padding: 3px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+    flex: 1.2;
 }
 
 .chart-section {
     width: 100%;
     height: auto;
-    min-height: 300px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
+    min-height: 140px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 3px;
     box-sizing: border-box;
     overflow: visible;
+    flex: 0.7;
 }
 </style>

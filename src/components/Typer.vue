@@ -42,10 +42,10 @@ const computedStyle = computed<CSSProperties>(() => {
 
 <style scoped>
 .frosted-glass {
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px) saturate(80%);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 </style>

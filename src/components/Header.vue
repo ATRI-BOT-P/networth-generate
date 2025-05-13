@@ -29,7 +29,7 @@ defineProps<{
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    height: 4%;
+    height: 100px; /* 改为固定高度，而不是百分比 */
     background: #1b1b1b;
     color: white;
     z-index: 1000;
@@ -41,6 +41,7 @@ defineProps<{
     align-items: center;
     flex: 1;
     min-width: 0;
+    height: 100%;
 }
 
 .header-right {
@@ -53,12 +54,13 @@ defineProps<{
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    font-size: 12px;
+    font-size: 50px; /* 调大字体大小 */
+    height: 100%;
 }
 
 .logo {
-    height: 32px;
-    width: 32px;
+    height: 88px;
+    width: 88px;
     margin-right: 10px;
     flex-shrink: 0;
     border-radius: 10px;
@@ -69,10 +71,16 @@ defineProps<{
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    font-size: 20px;
+    font-size: 50px;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.info {
+    font-size: 50px;
+    margin: 0;
+    font-weight: 800;
 }
 </style>

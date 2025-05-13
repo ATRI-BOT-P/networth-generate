@@ -46,7 +46,7 @@ const backgroundGradientStyle = computed(() => {
 
     return {
         background: `linear-gradient(80deg, ${currentColor}A0 0%, ${nextColor}A0 100%)`,
-        borderLeft: `4px solid ${currentColor}`,
+        borderLeft: `7px solid ${currentColor}`,
     };
 });
 </script>
@@ -60,7 +60,7 @@ const backgroundGradientStyle = computed(() => {
         <div class="item-content">
             <div :class="{ upgraded: isUpgraded }" class="item-name">
                 <span class="text-wrapper">
-                    <template v-for="item in nameChars" :key="i">
+                    <template v-for="(item, i) in nameChars" :key="i">
                         <span :style="{ color: item.color }">{{ item.char }}</span>
                     </template>
                 </span>
@@ -76,30 +76,29 @@ const backgroundGradientStyle = computed(() => {
 .item {
     display: flex;
     align-items: flex-start;
-    padding: 8px 10px;
-    border-radius: 12px;
+    padding: 8px 12px;
+    border-radius: 16px;
     margin-bottom: 8px;
-    border-left: 3px solid;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
     width: 100%;
     box-sizing: border-box;
     min-width: 0;
-    min-height: 48px;
-    height: auto;
+    min-height: 70px;
     transition: all 0.1s ease;
     position: relative;
     overflow: visible;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(8px);
 }
 
 .item-icon,
 .item-placeholder {
-    width: 32px;
-    height: 32px;
+    width: 45px;
+    height: 45px;
     margin-right: 8px;
     flex-shrink: 0;
     vertical-align: top;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .item-icon img {
@@ -116,12 +115,12 @@ const backgroundGradientStyle = computed(() => {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     width: 100%;
 }
 
 .item-name {
-    font-size: 12px;
+    font-size: 19px;
     font-family: 'JetBrains Mono', monospace;
     font-optical-sizing: auto;
     font-weight: 800;
@@ -132,16 +131,16 @@ const backgroundGradientStyle = computed(() => {
     hyphens: auto;
     flex: 1;
     min-width: 0;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 2px 2px 5px black;
 }
 
 .text-wrapper {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 8px;
-    padding: 3px 6px;
+    background-color: rgba(0, 0, 0, 0.55);
+    border-radius: 12px;
+    padding: 4px 8px;
     display: inline-block;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(14px);
     max-width: 100%;
     white-space: normal;
 }
@@ -151,23 +150,23 @@ const backgroundGradientStyle = computed(() => {
 }
 
 .item-value {
-    font-size: 12px;
+    font-size: 19px;
     font-family: 'JetBrains Mono', monospace;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
     flex-shrink: 0;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 2px 2px 5px black;
 }
 
 .value-wrapper {
     background-color: rgba(0, 0, 0, 0.3);
     color: #ffaa00;
-    border-radius: 8px;
-    padding: 3px 6px;
+    border-radius: 12px;
+    padding: 4px 8px;
     display: inline-block;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
     white-space: nowrap;
 }
 </style>

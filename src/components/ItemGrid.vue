@@ -12,7 +12,8 @@ const props = defineProps<{
         <div v-for="(category, catIndex) in props.categories" :key="catIndex" class="category-container">
             <div class="category-header">
                 <div :style="{ color: category.titleColor }" class="category-title">
-                    {{ category.title }} <span v-if="category.value" class="category-value">{{ category.value }}</span>
+                    {{ category.title }}
+                    <span v-if="category.value" class="category-value">{{ category.value }}</span>
                 </div>
             </div>
 
@@ -37,8 +38,8 @@ const props = defineProps<{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 10px;
+    gap: 20px;
+    padding: 14px;
     max-height: 100%;
     overflow: hidden;
 }
@@ -46,70 +47,50 @@ const props = defineProps<{
 .category-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .category-header {
     display: flex;
     align-items: center;
-    padding: 5px 10px;
+    padding: 6px 14px;
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-bottom: 5px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    margin-bottom: 6px;
 }
 
 .category-title {
-    font-size: 16px;
+    font-size: 30px;
     font-family: 'JetBrains Mono', monospace;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1.8px;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.75);
 }
 
 .category-value {
-    margin-left: 10px;
+    margin-left: 20px;
+    font-size: 26px;
     font-family: 'JetBrains Mono', monospace;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
     color: #ffaa00;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.75);
 }
 
 .items-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 12px;
     width: 100%;
 }
 
 .items-grid > * {
-    flex: 0 0 calc(20% - 8px);
-    min-width: 100px;
-    max-width: calc(20% - 8px);
-}
-
-@media (max-width: 1200px) {
-    .items-grid > * {
-        flex: 0 0 calc(25% - 8px);
-        max-width: calc(25% - 8px);
-    }
-}
-
-@media (max-width: 900px) {
-    .items-grid > * {
-        flex: 0 0 calc(33.333% - 8px);
-        max-width: calc(33.333% - 8px);
-    }
-}
-
-@media (max-width: 600px) {
-    .items-grid > * {
-        flex: 0 0 calc(50% - 8px);
-        max-width: calc(50% - 8px);
-    }
+    flex: 0 0 calc(33.333% - 12px);
+    min-width: 200px;
+    max-width: calc(33.333% - 12px);
 }
 </style>

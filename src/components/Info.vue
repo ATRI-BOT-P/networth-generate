@@ -49,6 +49,7 @@ const cosmeticStyle = computed(
             </div>
             <span :style="profileStyle">{{ textParts.profile }}</span>
             <span :style="cosmeticStyle">{{ textParts.cosmeticText }}</span>
+
             <div class="networth">
                 <span :style="{ color: '#FFAA00' }">{{ 'Networth: ' }}</span>
                 <span :style="{ color: 'white' }">{{ networthTotal || '0' }}</span>
@@ -90,19 +91,19 @@ const cosmeticStyle = computed(
 .info {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 6px 10px;
-    border-radius: 15px;
+    position: relative;
+    gap: 20px;
+    padding: 20px 25px;
+    border-radius: 30px;
     font-family: 'JetBrains Mono', monospace;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    font-size: clamp(10px, 1.8vw, 14px);
+    font-size: clamp(22px, 3.2vw, 36px);
     text-shadow:
-        1px 1px 2px black,
-        0 0 25px black,
-        0 0 5px black;
+        3px 3px 6px black,
+        0 0 38px black,
+        0 0 8px black;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
@@ -110,24 +111,24 @@ const cosmeticStyle = computed(
 }
 
 .avatar {
-    width: 24px;
-    height: 24px;
+    width: 70px;
+    height: 70px;
     flex-shrink: 0;
 }
 
 .head {
-    width: 6vw;
-    max-width: 28px;
+    width: 12vw;
+    max-width: 70px;
     height: auto;
-    border-radius: 5px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .name {
-    padding: 3px 4px;
+    padding: 8px 10px;
     background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     max-width: 100%;
     overflow: hidden;
 }
@@ -135,11 +136,12 @@ const cosmeticStyle = computed(
 .left {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 28px;
     flex-wrap: wrap;
-    flex: 1 1 auto;
-    min-width: 140px;
-    height: 100%;
+    flex: 2.5 1 auto;
+    min-width: 280px;
+    position: relative;
+    z-index: 1;
 }
 
 .right {
@@ -147,33 +149,43 @@ const cosmeticStyle = computed(
     flex-direction: column;
     align-items: flex-end;
     flex: 1 1 auto;
-    min-width: 120px;
+    min-width: 220px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 2;
 }
 
 .right > div {
     flex-shrink: 1;
     width: 100%;
     text-align: right;
+    margin-bottom: 14px;
 }
 
 .purse,
 .bank,
-.essence {
+.essence,
+.soulflow {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .purse-icon,
 .bank-icon,
 .essence-icon,
 .soulflow-icon {
-    width: 20px;
-    height: 20px;
+    width: 54px;
+    height: 54px;
     vertical-align: middle;
+    margin-right: 14px;
 }
 
 .networth,
 .non-soulbound {
     flex-basis: 100%;
-    margin-top: 4px;
+    margin-top: 14px;
 }
 </style>

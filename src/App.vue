@@ -43,11 +43,9 @@ const backGroundStyle = computed((): CSSProperties => {
 
     <div class="main-container">
         <div class="typer-container-wrapper">
-            <Typer :absolute="false" :centered="false" border-radius="16px" class="typer-container" height="auto" width="95%">
+            <Typer :absolute="false" :centered="false" border-radius="14px" class="typer-container" height="auto" width="98%">
                 <MainContent :chart-options="data.chartOptions" :item-categories="data.itemCategories" :user-data="data.userData" />
             </Typer>
         </div>
     </div>
 </template>
-
-<style></style>
