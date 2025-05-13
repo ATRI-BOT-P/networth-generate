@@ -60,7 +60,7 @@ const backgroundGradientStyle = computed(() => {
     <div class="item-content">
       <div :class="{ 'upgraded': isUpgraded }" class="item-name">
         <span class="text-wrapper">
-          <template v-for="(item, i) in nameChars" :key="i">
+          <template v-for="(item) in nameChars" :key="i">
             <span :style="{ color: item.color }">{{ item.char }}</span>
           </template>
         </span>

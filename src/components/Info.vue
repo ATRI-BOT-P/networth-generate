@@ -39,7 +39,7 @@ const cosmeticStyle = computed((): CSSProperties => ({
         <img :src="head" alt="Player head" class="head"/>
       </div>
       <div class="name">
-        <template v-for="(item, i) in textParts.nameChars" :key="i">
+        <template v-for="(item) in textParts.nameChars" :key="i">
           <span :style="{ color: item.color, verticalAlign: 'top' }">{{ item.char }}</span>
         </template>
       </div>

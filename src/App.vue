@@ -4,8 +4,7 @@ import Header from './components/Header.vue'
 import Typer from './components/Typer.vue'
 import MainContent from './components/MainContent.vue'
 import localforage from 'localforage'
-import {getNetworthData, setNetworthData} from './data'
-import type {AppData} from './types'
+import {getNetworthData, loadData, onStorage, syncData} from './data'
 import "./app.css"
 
 localforage.config({
@@ -16,34 +15,21 @@ localforage.config({
   description: 'networth-generate'
 })
 
-const data = getNetworthData()
 let intervalId: number
 
-async function loadData() {
-  const saved = (await localforage.getItem('nw')) as AppData | null
-  if (saved) setNetworthData(saved)
-}
-
-async function syncData() {
-  const saved = (await localforage.getItem('nw')) as AppData | null
-  if (saved) setNetworthData(saved)
-}
-
-function onStorage(e: StorageEvent) {
-  if (e.key === 'nw' || e.key === null) syncData()
-}
-
 onMounted(async () => {
-  ;(window as any).$localforage = localforage
+  window.$localforage = localforage
   await loadData()
   window.addEventListener('storage', onStorage)
-  intervalId = window.setInterval(syncData, 2000)
+  intervalId = window.setInterval(syncData, 500)
 })
 
 onUnmounted(() => {
   window.removeEventListener('storage', onStorage)
   clearInterval(intervalId)
 })
+
+const data = getNetworthData()
 
 const backGroundStyle = computed((): CSSProperties => {
   const url = data.value?.userData?.backgroundUrl

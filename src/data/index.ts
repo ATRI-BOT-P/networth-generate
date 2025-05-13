@@ -1,5 +1,6 @@
 import {type Ref, ref, type UnwrapRef} from "vue";
 import type {AppData} from "../types";
+import localforage from "localforage";
 
 const defaultData: AppData = {
     userData: {
@@ -451,3 +452,18 @@ function setNetworthData(newData: AppData): void {
 }
 
 export {getNetworthData, setNetworthData};
+
+export async function loadData() {
+    const saved = (await localforage.getItem('nw')) as AppData | null
+    if (saved) setNetworthData(saved)
+}
+
+export async function syncData() {
+    const saved = (await localforage.getItem('nw')) as AppData | null
+    if (saved) setNetworthData(saved)
+}
+
+export function onStorage(e: StorageEvent) {
+    if (e.key === 'nw' || e.key === null) syncData()
+}
+
