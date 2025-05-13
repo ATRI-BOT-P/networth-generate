@@ -1,4 +1,4 @@
-import type {EChartsOption} from "echarts";
+import type { EChartsOption } from 'echarts';
 
 export interface ItemData {
     name: string;
@@ -39,11 +39,11 @@ export interface ChartOptions {
     animation: boolean;
     backgroundColor: string;
     textStyle: {
-        fontSize: number,
-        fontFamily: string,
-        fontOpticalSizing: string,
-        fontWeight: string,
-        fontStyle: string,
+        fontSize: number;
+        fontFamily: string;
+        fontOpticalSizing: string;
+        fontWeight: string;
+        fontStyle: string;
         color: string;
     };
     title: {
@@ -51,11 +51,11 @@ export interface ChartOptions {
         left: string;
         top: number;
         textStyle: {
-            fontSize: number,
-            fontFamily: string,
-            fontOpticalSizing: string,
-            fontWeight: string,
-            fontStyle: string,
+            fontSize: number;
+            fontFamily: string;
+            fontOpticalSizing: string;
+            fontWeight: string;
+            fontStyle: string;
             color: string;
         };
     };
@@ -135,13 +135,13 @@ export interface AppData {
 }
 
 export interface TyperProps {
-    width?: string
-    height?: string
-    top?: string
-    left?: string
-    borderRadius?: string
-    absolute?: boolean
-    centered?: boolean
+    width?: string;
+    height?: string;
+    top?: string;
+    left?: string;
+    borderRadius?: string;
+    absolute?: boolean;
+    centered?: boolean;
 }
 
 export interface RarityColors {

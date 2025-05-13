@@ -67,7 +67,7 @@ const utils = {
             } else {
                 result.push({
                     char: text[i],
-                    color: currentColor
+                    color: currentColor,
                 });
             }
         }
@@ -77,7 +77,7 @@ const utils = {
 
     getCosmeticText(isCosmetic?: boolean): string {
         return isCosmetic ? '(Cosmetic)' : '(Non-Cosmetic)';
-    }
+    },
 };
 
 export default utils;

@@ -1,40 +1,40 @@
 {
-  "name": "networth-generate",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "test": "npx jest --detectOpenHandles",
-    "coverage": "npx jest --coverage",
-    "lint": "npx eslint .",
-    "prettier": "npx prettier --check .",
-    "prettier:fix": "npx prettier --write .",
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "fast": "vite build",
-    "preview": "vite preview"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ATRI-BOT-P/networth-generate"
-  },
-  "bugs": {
-    "url": "https://github.com/ATRI-BOT-P/networth-generate/issues"
-  },
-  "author": "Sn0wo2",
-  "dependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.26.0",
-    "echarts": "^5.6.0",
-    "globals": "^16.1.0",
-    "localforage": "^1.10.0",
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.4",
-    "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.5",
-    "vue-tsc": "^2.2.10"
-  }
+    "name": "networth-generate",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "test": "npx jest --detectOpenHandles",
+        "coverage": "npx jest --coverage",
+        "lint": "npx eslint .",
+        "prettier": "npx prettier --check .",
+        "prettier:fix": "npx prettier --write .",
+        "dev": "vite",
+        "build": "vue-tsc -b && vite build",
+        "fast": "vite build",
+        "preview": "vite preview"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ATRI-BOT-P/networth-generate"
+    },
+    "bugs": {
+        "url": "https://github.com/ATRI-BOT-P/networth-generate/issues"
+    },
+    "author": "Sn0wo2",
+    "dependencies": {
+        "@eslint/eslintrc": "^3.3.1",
+        "@eslint/js": "^9.26.0",
+        "echarts": "^5.6.0",
+        "globals": "^16.1.0",
+        "localforage": "^1.10.0",
+        "vue": "^3.5.13"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^5.2.4",
+        "@vue/tsconfig": "^0.7.0",
+        "typescript": "~5.8.3",
+        "vite": "^6.3.5",
+        "vue-tsc": "^2.2.10"
+    }
 }
