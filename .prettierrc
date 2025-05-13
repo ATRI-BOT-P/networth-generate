@@ -1,6 +1,5 @@
 {
-    "tabWidth": 4,
-    "singleQuote": true,
-    "printWidth": 170,
-    "quoteProps": "consistent"
+  "singleQuote": true,
+  "printWidth": 170,
+  "quoteProps": "consistent"
 }

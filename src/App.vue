@@ -8,44 +8,44 @@ import { getNetworthData, loadData, onStorage, syncData } from './data';
 import './app.css';
 
 localforage.config({
-    driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
-    name: 'networth-generate',
-    version: 1.0,
-    storeName: 'meow',
-    description: 'networth-generate',
+  driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
+  name: 'networth-generate',
+  version: 1.0,
+  storeName: 'meow',
+  description: 'networth-generate',
 });
 
 let intervalId: number;
 
 onMounted(async () => {
-    window.$localforage = localforage;
-    await loadData();
-    window.addEventListener('storage', onStorage);
-    intervalId = window.setInterval(syncData, 500);
+  window.$localforage = localforage;
+  await loadData();
+  window.addEventListener('storage', onStorage);
+  intervalId = window.setInterval(syncData, 500);
 });
 
 onUnmounted(() => {
-    window.removeEventListener('storage', onStorage);
-    clearInterval(intervalId);
+  window.removeEventListener('storage', onStorage);
+  clearInterval(intervalId);
 });
 
 const data = getNetworthData();
 
 const backGroundStyle = computed((): CSSProperties => {
-    const url = data.value?.userData?.backgroundUrl;
-    return { backgroundImage: `url("${url || 'background.jpg'}")` };
+  const url = data.value?.userData?.backgroundUrl;
+  return { backgroundImage: `url("${url || 'background.jpg'}")` };
 });
 </script>
 
 <template>
-    <div :style="backGroundStyle" class="background"></div>
-    <Header :info="data.userData.version" :logo="data.userData.logo" :title="data.userData.title" />
+  <div :style="backGroundStyle" class="background"></div>
+  <Header :info="data.userData.version" :logo="data.userData.logo" :title="data.userData.title" />
 
-    <div class="main-container">
-        <div class="typer-container-wrapper">
-            <Typer :absolute="false" :centered="false" border-radius="14px" class="typer-container" height="auto" width="98%">
-                <MainContent :chart-options="data.chartOptions" :item-categories="data.itemCategories" :user-data="data.userData" />
-            </Typer>
-        </div>
+  <div class="main-container">
+    <div class="typer-container-wrapper">
+      <Typer :absolute="false" :centered="false" border-radius="14px" class="typer-container" height="auto" width="98%">
+        <MainContent :chart-options="data.chartOptions" :item-categories="data.itemCategories" :user-data="data.userData" />
+      </Typer>
     </div>
+  </div>
 </template>
