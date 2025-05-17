@@ -2,15 +2,15 @@
   <div class="main-content">
     <div class="info-section">
       <Info
-        :bank-value="userData.bankValue"
-        :cosmetic="userData.isCosmeticEnabled"
-        :essence-value="userData.essenceValue"
         :head="userData.playerHead"
         :name="userData.playerName"
-        :networth-short="userData.networthShort"
+        :cosmetic="userData.isCosmeticEnabled"
+        :bank-value="userData.bankValue"
+        :essence-value="userData.essenceValue"
         :networth-total="userData.networthTotal"
+        :networth-short="userData.networthShort"
+        :soul-bound-total="userData.soulBoundTotal"
         :soul-bound-short="userData.soulBoundShort"
-        :soul-bound-totall="userData.soulBoundTotal"
         :profile="userData.profileName"
         :purse-value="userData.purseValue"
         :soulflow-value="userData.soulflowValue"

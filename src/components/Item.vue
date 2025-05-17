@@ -140,6 +140,7 @@ const backgroundGradientStyle = computed(() => {
   border-radius: 12px;
   padding: 4px 8px;
   display: inline-block;
+  text-shadow: 2px 2px 5px black;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(14px);
   max-width: 100%;
