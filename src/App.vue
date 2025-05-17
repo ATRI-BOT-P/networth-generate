@@ -14,7 +14,6 @@ localforage.config({
   storeName: 'meow',
   description: 'networth-generate',
 });
-
 let intervalId: number;
 
 onMounted(async () => {

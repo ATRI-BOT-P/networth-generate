@@ -66,7 +66,7 @@ const props = defineProps<{
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
   text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.75);
 }
 

@@ -9,8 +9,8 @@ const props = defineProps<{
   name?: string;
   networthTotal?: string;
   networthShort?: string;
-  nonSoulBoundTotal?: string;
-  nonSoulBoundShort?: string;
+  soulBoundTotal?: string;
+  soulBoundShort?: string;
   purseValue?: string;
   bankValue?: string;
   essenceValue?: string;
@@ -43,7 +43,7 @@ const cosmeticStyle = computed(
         <img :src="head" alt="Player head" class="head" />
       </div>
       <div class="name">
-        <template v-for="item in textParts.nameChars" :key="i">
+        <template v-for="item in textParts.nameChars">
           <span :style="{ color: item.color, verticalAlign: 'top' }">{{ item.char }}</span>
         </template>
       </div>
@@ -55,32 +55,32 @@ const cosmeticStyle = computed(
         <span :style="{ color: 'white' }">{{ networthTotal || '0' }}</span>
         <span :style="{ color: '#AAAAAA' }">{{ ` (${networthShort || '0'})` }}</span>
       </div>
-      <div class="non-soulbound">
-        <span :style="{ color: '#AAAAAA' }">{{ 'UnsoulBound: ' }}</span>
-        <span :style="{ color: 'white' }">{{ nonSoulBoundTotal || '0' }}</span>
-        <span :style="{ color: '#AAAAAA' }">{{ ` (${nonSoulBoundShort || '0'})` }}</span>
+      <div class="soulbound">
+        <span :style="{ color: '#AAAAAA' }">{{ 'SoulBound: ' }}</span>
+        <span :style="{ color: 'white' }">{{ soulBoundTotal || '0' }}</span>
+        <span :style="{ color: '#AAAAAA' }">{{ ` (${soulBoundShort || '0'})` }}</span>
       </div>
     </div>
 
     <div class="right">
       <div class="purse">
         <img alt="Purse icon" class="purse-icon" src="../../public/purse.png" />
-        <span :style="{ color: '#ffdd00' }">{{ 'Purse: ' }}</span>
+        <span :style="{ color: '#ffdd00' }">Purse:&nbsp;</span>
         <span :style="{ color: 'white' }">{{ purseValue || '0' }}</span>
       </div>
       <div class="bank">
         <img alt="Bank icon" class="bank-icon" src="../../public/bank.png" />
-        <span :style="{ color: '#FFAA00' }">{{ 'Bank: ' }}</span>
+        <span :style="{ color: '#FFAA00' }">Bank:&nbsp;</span>
         <span :style="{ color: 'white' }">{{ bankValue || '0' }}</span>
       </div>
       <div class="essence">
         <img alt="Essence icon" class="essence-icon" src="../../public/essence.png" />
-        <span :style="{ color: '#ef00ff' }">{{ 'Essence: ' }}</span>
+        <span :style="{ color: '#ef00ff' }">Essence:&nbsp;</span>
         <span :style="{ color: 'white' }">{{ essenceValue || '0' }}</span>
       </div>
       <div class="soulflow">
         <img alt="Soulflow icon" class="soulflow-icon" src="../../public/soulflow.png" />
-        <span :style="{ color: '#00adb5' }">{{ 'Soulflow: ' }}</span>
+        <span :style="{ color: '#00adb5' }">Soulflow:&nbsp;</span>
         <span :style="{ color: 'white' }">{{ soulflowValue || '0' }}</span>
       </div>
     </div>
@@ -184,7 +184,7 @@ const cosmeticStyle = computed(
 }
 
 .networth,
-.non-soulbound {
+.soulbound {
   flex-basis: 100%;
   margin-top: 14px;
 }

@@ -5,21 +5,21 @@ import localforage from 'localforage';
 const defaultData: AppData = {
   userData: {
     title: 'ATRI-BOT',
-    logo: './nw/logo.png',
+    logo: './logo.png',
     version: '0.0.0',
-    playerHead: './nw/logo.png',
+    playerHead: './logo.png',
     playerName: 'Me0wo',
     profileName: 'ATRI-BOT',
     isCosmeticEnabled: true,
     networthTotal: '123,456,789,123',
     networthShort: '123.45B',
-    nonSoulBoundTotal: '123,456,789,123',
-    nonSoulBoundShort: '123.45B',
+    soulBoundTotal: '123,456,789,123',
+    soulBoundShort: '123.45B',
     purseValue: '12.34B',
     bankValue: '123.45B',
     essenceValue: '0',
     soulflowValue: '123.45B',
-    backgroundUrl: './nw/background.jpg',
+    backgroundUrl: './background.jpg',
   },
   itemCategories: [
     {
@@ -347,25 +347,6 @@ const defaultData: AppData = {
       ],
     },
   ],
-
-  customMap: {
-    10000: '10k',
-    20000: '20k',
-    30000: '30k',
-    40000: '40k',
-    50000: '50k',
-    60000: '60k',
-    70000: '70k',
-    80000: '80k',
-    90000: '90k',
-    100000: '100k',
-    110000: '110k',
-    120000: '120k',
-    130000: '130k',
-    140000: '140k',
-    150000: '150k',
-    160000: '160k',
-  },
   chartOptions: {
     animation: false,
     backgroundColor: 'transparent',
@@ -429,7 +410,33 @@ const defaultData: AppData = {
       axisLabel: {
         color: 'rgba(255,255,255,0.8)',
         formatter: function (value: number) {
-          return data.value.customMap[value] || value / 1000 + 'k';
+          let negative = false;
+          let nAbs = value;
+
+          if (value < 0) {
+            negative = true;
+            nAbs = -value;
+          }
+
+          let result = '';
+
+          if (nAbs < 1_000) {
+            result = nAbs.toFixed(2);
+          } else if (nAbs < 1_000_000) {
+            result = (nAbs / 1_000).toFixed(2) + 'k';
+          } else if (nAbs < 1_000_000_000) {
+            result = (nAbs / 1_000_000).toFixed(2) + 'M';
+          } else if (nAbs < 1_000_000_000_000) {
+            result = (nAbs / 1_000_000_000).toFixed(2) + 'B';
+          } else if (nAbs < 1_000_000_000_000_000) {
+            result = (nAbs / 1_000_000_000_000).toFixed(2) + 'T';
+          } else if (nAbs < 1_000_000_000_000_000_000) {
+            result = (nAbs / 1_000_000_000_000_000).toFixed(2) + 'Q';
+          } else {
+            result = (nAbs / 1_000_000_000_000_000_000).toFixed(2) + '+';
+          }
+
+          return negative ? '-' + result : result;
         },
       },
       splitLine: {

@@ -26,8 +26,8 @@ export interface UserData {
   isCosmeticEnabled: boolean;
   networthTotal: string;
   networthShort: string;
-  nonSoulBoundTotal: string;
-  nonSoulBoundShort: string;
+  soulBoundTotal: string;
+  soulBoundShort: string;
   purseValue: string;
   bankValue: string;
   essenceValue: string;
@@ -130,7 +130,6 @@ export interface ChartOptions {
 export interface AppData {
   userData: UserData;
   itemCategories: CategoryData[];
-  customMap: Record<number, string>;
   chartOptions: ChartOptions;
 }
 
