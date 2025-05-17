@@ -8,15 +8,16 @@ const props = defineProps<ItemData>();
 const nameChars = computed(() => utils.parseMinecraftStyledText(props.name));
 
 const rarityColors: RarityColors = {
-  COMMON: '#FFFFFF',
-  UNCOMMON: '#55FF55',
-  RARE: '#5555FF',
-  EPIC: '#AA00AA',
-  LEGENDARY: '#FFAA00',
-  MYTHIC: '#FF55FF',
-  DIVINE: '#55FFFF',
-  SPECIAL: '#FF5555',
-  VERY_SPECIAL: '#FF5555',
+  COMMON: '#CCCCCC', // 原: #FFFFFF
+  UNCOMMON: '#44CC44', // 原: #55FF55
+  RARE: '#4444CC', // 原: #5555FF
+  EPIC: '#880088', // 原: #AA00AA
+  LEGENDARY: '#CC8800', // 原: #FFAA00
+  MYTHIC: '#CC44CC', // 原: #FF55FF
+  DIVINE: '#44CCCC', // 原: #55FFFF
+  SPECIAL: '#CC4444', // 原: #FF5555
+  VERY_SPECIAL: '#CC4444', // 原: #FF5555
+  ULTIMATE: '#CC4444', // 原: #FF5555
 };
 
 const nextRarityMap: RarityMap = {
@@ -28,7 +29,8 @@ const nextRarityMap: RarityMap = {
   MYTHIC: 'LEGENDARY',
   DIVINE: 'MYTHIC',
   SPECIAL: 'SPECIAL',
-  VERY_SPECIAL: 'VERY_SPECIAL',
+  VERY_SPECIAL: 'SPECIAL',
+  ULTIMATE: 'VERY_SPECIAL',
 };
 
 const backgroundGradientStyle = computed(() => {
@@ -45,7 +47,7 @@ const backgroundGradientStyle = computed(() => {
   }
 
   return {
-    background: `linear-gradient(80deg, ${currentColor}A0 0%, ${nextColor}A0 100%)`,
+    background: `linear-gradient(80deg, ${currentColor}F0 50%, ${nextColor}F0 99%)`,
     borderLeft: `7px solid ${currentColor}`,
   };
 });
@@ -60,7 +62,7 @@ const backgroundGradientStyle = computed(() => {
     <div class="item-content">
       <div :class="{ upgraded: isUpgraded }" class="item-name">
         <span class="text-wrapper">
-          <template v-for="(item, i) in nameChars" :key="i">
+          <template v-for="item in nameChars">
             <span :style="{ color: item.color }">{{ item.char }}</span>
           </template>
         </span>
@@ -93,8 +95,8 @@ const backgroundGradientStyle = computed(() => {
 
 .item-icon,
 .item-placeholder {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   margin-right: 8px;
   flex-shrink: 0;
   vertical-align: top;
@@ -120,7 +122,7 @@ const backgroundGradientStyle = computed(() => {
 }
 
 .item-name {
-  font-size: 19px;
+  font-size: 22px;
   font-family: 'JetBrains Mono', monospace;
   font-optical-sizing: auto;
   font-weight: 800;
@@ -131,11 +133,10 @@ const backgroundGradientStyle = computed(() => {
   hyphens: auto;
   flex: 1;
   min-width: 0;
-  text-shadow: 2px 2px 5px black;
 }
 
 .text-wrapper {
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   padding: 4px 8px;
   display: inline-block;
