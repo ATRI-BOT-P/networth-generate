@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { computed, type CSSProperties, onMounted, onUnmounted } from 'vue';
+import { computed, type CSSProperties, onMounted, watch } from 'vue';
 import Header from './components/Header.vue';
 import Typer from './components/Typer.vue';
 import MainContent from './components/MainContent.vue';
 import localforage from 'localforage';
-import { getNetworthData, loadData, onStorage, syncData } from './data';
-import './app.css';
+import { getNetworthData, loadData } from './data';
+import { useRoute } from 'vue-router';
 
 localforage.config({
   driver: [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
@@ -14,20 +14,34 @@ localforage.config({
   storeName: 'meow',
   description: 'networth-generate',
 });
-let intervalId: number;
+
+const route = useRoute();
+function getSessionKey() {
+  const sessionID = route.query.sessionID as string | undefined;
+  return sessionID ? `nw_${sessionID}` : 'nw';
+}
+
+let loadedSessionKey = '';
+
+async function tryLoadData() {
+  const key = getSessionKey();
+  if (key !== loadedSessionKey) {
+    await loadData(key);
+    loadedSessionKey = key;
+  }
+}
 
 onMounted(async () => {
   window.$localforage = localforage;
-  await loadData();
-  window.addEventListener('storage', onStorage);
-  intervalId = window.setInterval(syncData, 500);
 });
 
-onUnmounted(() => {
-  window.removeEventListener('storage', onStorage);
-  clearInterval(intervalId);
-});
-
+watch(
+  () => route.query.sessionID,
+  async () => {
+    await tryLoadData();
+  },
+  { immediate: true },
+);
 const data = getNetworthData();
 
 const backGroundStyle = computed((): CSSProperties => {
@@ -48,3 +62,58 @@ const backGroundStyle = computed((): CSSProperties => {
     </div>
   </div>
 </template>
+
+<style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: calc(100px + 3%);
+  padding-bottom: 3%;
+}
+
+.typer-container-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.typer-container {
+  max-width: 99.8%;
+  padding: 0.15rem 0.08rem;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+</style>

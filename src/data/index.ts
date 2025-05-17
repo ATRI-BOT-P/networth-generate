@@ -1,4 +1,4 @@
-import { type Ref, ref, type UnwrapRef } from 'vue';
+import { type Ref, ref } from 'vue';
 import type { AppData } from '../types';
 import localforage from 'localforage';
 
@@ -476,26 +476,19 @@ const defaultData: AppData = {
 };
 let data = ref<AppData>(defaultData);
 
-function getNetworthData(): Ref<UnwrapRef<AppData>, UnwrapRef<AppData> | AppData> {
+export function getNetworthData(): Ref<AppData> {
   return data;
 }
 
-function setNetworthData(newData: AppData): void {
+export function setNetworthData(newData: AppData): void {
   data.value = newData;
 }
 
-export { getNetworthData, setNetworthData };
-
-export async function loadData() {
-  const saved = (await localforage.getItem('nw')) as AppData | null;
+export async function loadData(key = 'nw') {
+  const saved = (await localforage.getItem(key)) as AppData | null;
   if (saved) setNetworthData(saved);
 }
 
-export async function syncData() {
-  const saved = (await localforage.getItem('nw')) as AppData | null;
-  if (saved) setNetworthData(saved);
-}
-
-export function onStorage(e: StorageEvent) {
-  if (e.key === 'nw' || e.key === null) syncData();
+export async function onStorage(e: StorageEvent, key = 'nw') {
+  if (e.key === key || e.key === null) loadData(key);
 }
