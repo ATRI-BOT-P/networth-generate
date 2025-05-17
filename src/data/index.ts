@@ -1,4 +1,4 @@
-import { type Ref, ref } from 'vue';
+import { ref } from 'vue';
 import type { AppData } from '../types';
 import localforage from 'localforage';
 
@@ -418,7 +418,7 @@ const defaultData: AppData = {
             nAbs = -value;
           }
 
-          let result = '';
+          let result: string;
 
           if (nAbs < 1_000) {
             result = nAbs.toFixed(2);
@@ -474,21 +474,18 @@ const defaultData: AppData = {
     ],
   },
 };
-let data = ref<AppData>(defaultData);
+export let data = ref<AppData>(defaultData);
 
-export function getNetworthData(): Ref<AppData> {
-  return data;
-}
-
-export function setNetworthData(newData: AppData): void {
-  data.value = newData;
-}
+let load = false;
 
 export async function loadData(key = 'nw') {
+  if (load) {
+    return;
+  }
   const saved = (await localforage.getItem(key)) as AppData | null;
-  if (saved) setNetworthData(saved);
-}
-
-export async function onStorage(e: StorageEvent, key = 'nw') {
-  if (e.key === key || e.key === null) loadData(key);
+  if (saved) {
+    data.value = saved;
+    load = true;
+    await localforage.removeItem(key);
+  }
 }

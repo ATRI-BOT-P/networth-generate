@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { computed, type CSSProperties, onMounted, watch } from 'vue';
+import { computed, type CSSProperties, onMounted, onUnmounted } from 'vue';
 import Header from './components/Header.vue';
 import Typer from './components/Typer.vue';
 import MainContent from './components/MainContent.vue';
 import localforage from 'localforage';
-import { getNetworthData, loadData } from './data';
+import { data, loadData } from './data';
 import { useRoute } from 'vue-router';
 
 localforage.config({
@@ -21,28 +21,17 @@ function getSessionKey() {
   return sessionID ? `nw_${sessionID}` : 'nw';
 }
 
-let loadedSessionKey = '';
-
-async function tryLoadData() {
-  const key = getSessionKey();
-  if (key !== loadedSessionKey) {
-    await loadData(key);
-    loadedSessionKey = key;
-  }
-}
+const interval = setInterval(async () => {
+  await loadData(getSessionKey());
+}, 1);
 
 onMounted(async () => {
   window.$localforage = localforage;
 });
 
-watch(
-  () => route.query.sessionID,
-  async () => {
-    await tryLoadData();
-  },
-  { immediate: true },
-);
-const data = getNetworthData();
+onUnmounted(() => {
+  clearInterval(interval);
+});
 
 const backGroundStyle = computed((): CSSProperties => {
   const url = data.value?.userData?.backgroundUrl;
