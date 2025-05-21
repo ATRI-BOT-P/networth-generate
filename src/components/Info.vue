@@ -87,7 +87,7 @@ const cosmeticStyle = computed(
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .info {
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ const cosmeticStyle = computed(
   gap: 20px;
   padding: 20px 25px;
   border-radius: 30px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Regular, sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
@@ -125,6 +125,7 @@ const cosmeticStyle = computed(
 }
 
 .name {
+  font-size: 120%;
   padding: 8px 10px;
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 22px;

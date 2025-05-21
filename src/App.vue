@@ -52,7 +52,10 @@ const backGroundStyle = computed((): CSSProperties => {
   </div>
 </template>
 
-<style>
+<style lang="scss">
+
+@use "font/index";
+
 html,
 body {
   margin: 0;

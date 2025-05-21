@@ -348,33 +348,7 @@ const defaultData: AppData = {
     },
   ],
   chartOptions: {
-    animation: false,
-    backgroundColor: 'transparent',
-    textStyle: {
-      fontSize: 14,
-      fontFamily: '"JetBrains Mono", monospace',
-      fontOpticalSizing: 'auto',
-      fontWeight: '800',
-      fontStyle: 'normal',
-      color: 'rgba(255,255,255,0.85)',
-    },
-    title: {
-      text: 'Networth History',
-      left: 'center',
-      top: 20,
-      textStyle: {
-        fontSize: 18,
-        fontFamily: '"JetBrains Mono", monospace',
-        fontOpticalSizing: 'auto',
-        fontWeight: '800',
-        fontStyle: 'normal',
-        color: 'rgba(255,255,255,0.95)',
-      },
-    },
-    tooltip: { show: false },
-    legend: { show: false },
     xAxis: {
-      type: 'category',
       data: [
         '1.1 01:01',
         '1.2 01:01',
@@ -397,79 +371,11 @@ const defaultData: AppData = {
         '1.19 01:01',
         '1.20 01:01',
       ],
-      axisLine: {
-        lineStyle: { color: 'rgba(255,255,255,0.5)' },
-      },
-      axisLabel: { color: 'rgba(255,255,255,0.8)' },
-    },
-    yAxis: {
-      type: 'value',
-      axisLine: {
-        lineStyle: { color: 'rgba(255,255,255,0.5)' },
-      },
-      axisLabel: {
-        color: 'rgba(255,255,255,0.8)',
-        formatter: function (value: number) {
-          let negative = false;
-          let nAbs = value;
-
-          if (value < 0) {
-            negative = true;
-            nAbs = -value;
-          }
-
-          let result: string;
-
-          if (nAbs < 1_000) {
-            result = nAbs.toFixed(2);
-          } else if (nAbs < 1_000_000) {
-            result = (nAbs / 1_000).toFixed(2) + 'k';
-          } else if (nAbs < 1_000_000_000) {
-            result = (nAbs / 1_000_000).toFixed(2) + 'M';
-          } else if (nAbs < 1_000_000_000_000) {
-            result = (nAbs / 1_000_000_000).toFixed(2) + 'B';
-          } else if (nAbs < 1_000_000_000_000_000) {
-            result = (nAbs / 1_000_000_000_000).toFixed(2) + 'T';
-          } else if (nAbs < 1_000_000_000_000_000_000) {
-            result = (nAbs / 1_000_000_000_000_000).toFixed(2) + 'Q';
-          } else {
-            result = (nAbs / 1_000_000_000_000_000_000).toFixed(2) + '+';
-          }
-
-          return negative ? '-' + result : result;
-        },
-      },
-      splitLine: {
-        lineStyle: { color: 'rgba(255,255,255,0.1)' },
-      },
     },
     series: [
       {
         name: 'NW',
-        type: 'line',
         data: [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000, 150000, 160000, 100000, 50000],
-        smooth: true,
-        symbol: 'none',
-        lineStyle: {
-          width: 3,
-          color: 'rgba(0,229,255,0.8)',
-        },
-        itemStyle: { color: 'rgba(0,229,255,0.8)' },
-        opacity: 0.85,
-        emphasis: { disabled: true },
-        areaStyle: {
-          color: {
-            type: 'linear',
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              { offset: 0, color: 'rgba(0,229,255,0.4)' },
-              { offset: 1, color: 'rgba(0,229,255,0)' },
-            ],
-          },
-        },
       },
     ],
   },

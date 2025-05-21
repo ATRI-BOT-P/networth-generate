@@ -35,102 +35,10 @@ export interface UserData {
   backgroundUrl?: string;
 }
 
-export interface ChartOptions {
-  animation: boolean;
-  backgroundColor: string;
-  textStyle: {
-    fontSize: number;
-    fontFamily: string;
-    fontOpticalSizing: string;
-    fontWeight: string;
-    fontStyle: string;
-    color: string;
-  };
-  title: {
-    text: string;
-    left: string;
-    top: number;
-    textStyle: {
-      fontSize: number;
-      fontFamily: string;
-      fontOpticalSizing: string;
-      fontWeight: string;
-      fontStyle: string;
-      color: string;
-    };
-  };
-  tooltip: {
-    show: boolean;
-  };
-  legend: {
-    show: boolean;
-  };
-  xAxis: {
-    type: string;
-    data: string[];
-    axisLine: {
-      lineStyle: {
-        color: string;
-      };
-    };
-    axisLabel: {
-      color: string;
-    };
-  };
-  yAxis: {
-    type: string;
-    axisLine: {
-      lineStyle: {
-        color: string;
-      };
-    };
-    axisLabel: {
-      color: string;
-      formatter: (value: number) => string;
-    };
-    splitLine: {
-      lineStyle: {
-        color: string;
-      };
-    };
-  };
-  series: Array<{
-    name: string;
-    type: string;
-    data: number[];
-    smooth: boolean;
-    symbol: string;
-    lineStyle: {
-      width: number;
-      color: string;
-    };
-    itemStyle: {
-      color: string;
-    };
-    opacity: number;
-    emphasis: {
-      disabled: boolean;
-    };
-    areaStyle: {
-      color: {
-        type: string;
-        x: number;
-        y: number;
-        x2: number;
-        y2: number;
-        colorStops: Array<{
-          offset: number;
-          color: string;
-        }>;
-      };
-    };
-  }>;
-}
-
 export interface AppData {
   userData: UserData;
   itemCategories: CategoryData[];
-  chartOptions: ChartOptions;
+  chartOptions: any;
 }
 
 export interface TyperProps {
@@ -152,7 +60,7 @@ export interface RarityMap {
 }
 
 export interface EChartProps {
-  options: EChartsOption | ChartOptions | EChartProps | any;
+  options?: EChartsOption | EChartProps | any;
   width?: string;
   height?: string;
   top?: string;

@@ -74,7 +74,7 @@ const backgroundGradientStyle = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .item {
   display: flex;
   align-items: flex-start;
@@ -123,7 +123,7 @@ const backgroundGradientStyle = computed(() => {
 
 .item-name {
   font-size: 22px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Light, sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
@@ -153,7 +153,7 @@ const backgroundGradientStyle = computed(() => {
 
 .item-value {
   font-size: 19px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Light, sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
@@ -163,7 +163,7 @@ const backgroundGradientStyle = computed(() => {
 
 .value-wrapper {
   background-color: rgba(0, 0, 0, 0.3);
-  color: #ffaa00;
+  color: #ffb700;
   border-radius: 12px;
   padding: 4px 8px;
   display: inline-block;

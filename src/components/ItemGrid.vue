@@ -33,7 +33,7 @@ const props = defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .item-grid-container {
   width: 100%;
   display: flex;
@@ -62,9 +62,9 @@ const props = defineProps<{
 
 .category-title {
   font-size: 30px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Medium, sans-serif;
   font-optical-sizing: auto;
-  font-weight: 800;
+  font-weight: 1000;
   font-style: normal;
   letter-spacing: 2px;
   text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.75);
@@ -73,11 +73,11 @@ const props = defineProps<{
 .category-value {
   margin-left: 20px;
   font-size: 26px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Regular, sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
-  color: #ffaa00;
+  color: #ffb700;
   text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.75);
 }
 

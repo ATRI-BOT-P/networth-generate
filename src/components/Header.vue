@@ -19,7 +19,7 @@ defineProps<{
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
   position: fixed;
   top: 0;
@@ -29,7 +29,7 @@ defineProps<{
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  height: 100px; /* 改为固定高度，而不是百分比 */
+  height: 100px;
   background: #1b1b1b;
   color: white;
   z-index: 1000;
@@ -50,11 +50,11 @@ defineProps<{
   flex-shrink: 0;
   gap: 12px;
   white-space: nowrap;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Regular,sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
-  font-size: 50px; /* 调大字体大小 */
+  font-size: 50px;
   height: 100%;
 }
 
@@ -67,7 +67,7 @@ defineProps<{
 }
 
 .title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Regular,sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;

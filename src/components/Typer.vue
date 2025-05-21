@@ -40,7 +40,7 @@ const computedStyle = computed<CSSProperties>(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .frosted-glass {
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 12px;

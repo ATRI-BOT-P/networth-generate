@@ -31,16 +31,17 @@
 import Info from './Info.vue';
 import ItemGrid from './ItemGrid.vue';
 import EChart from './EChart.vue';
-import type { CategoryData, ChartOptions, UserData } from '../types';
+import type { CategoryData, UserData } from '../types';
+import type {EChartsOption} from "echarts";
 
 defineProps<{
   userData: UserData;
   itemCategories: CategoryData[];
-  chartOptions: ChartOptions;
+  chartOptions: EChartsOption;
 }>();
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-content {
   display: flex;
   flex-direction: column;
