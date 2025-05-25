@@ -19,7 +19,7 @@ const defaultData: AppData = {
     bankValue: '123.45B',
     essenceValue: '0',
     soulflowValue: '123.45B',
-    backgroundUrl: './background.jpg',
+    backgroundUrl: './ADED3145E795D4BD929E43AA182F1424.jpg',
   },
   itemCategories: [
     {
