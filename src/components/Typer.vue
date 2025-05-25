@@ -29,12 +29,11 @@ const computedStyle = computed<CSSProperties>(() => {
 
   if (props.centered) {
     style.left = '50%';
-    style.transform = 'translateX(-50%)';
-    style.top = props.top;
   } else {
-    style.top = props.top;
     style.left = props.left;
   }
+
+  style.top = props.top;
 
   return style;
 });

@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import Info from './Info.vue';
+import ItemGrid from './ItemGrid.vue';
+import EChart from './EChart.vue';
+import type { CategoryData, UserData } from '../types';
+import type { EChartsOption } from 'echarts';
+
+defineProps<{
+  userData: UserData;
+  itemCategories: CategoryData[];
+  chartOptions: EChartsOption;
+}>();
+</script>
+
 <template>
   <div class="main-content">
     <div class="info-section">
@@ -26,20 +40,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import Info from './Info.vue';
-import ItemGrid from './ItemGrid.vue';
-import EChart from './EChart.vue';
-import type { CategoryData, UserData } from '../types';
-import type { EChartsOption } from 'echarts';
-
-defineProps<{
-  userData: UserData;
-  itemCategories: CategoryData[];
-  chartOptions: EChartsOption;
-}>();
-</script>
 
 <style lang="scss" scoped>
 .main-content {
