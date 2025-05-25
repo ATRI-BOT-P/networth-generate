@@ -32,7 +32,7 @@ import Info from './Info.vue';
 import ItemGrid from './ItemGrid.vue';
 import EChart from './EChart.vue';
 import type { CategoryData, UserData } from '../types';
-import type {EChartsOption} from "echarts";
+import type { EChartsOption } from 'echarts';
 
 defineProps<{
   userData: UserData;

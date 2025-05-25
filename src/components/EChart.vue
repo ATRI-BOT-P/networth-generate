@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type {ECharts, EChartsOption} from 'echarts';
+import type { ECharts, EChartsOption } from 'echarts';
 import * as echarts from 'echarts';
 import { computed, type CSSProperties, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import type { EChartProps } from '../types';
@@ -161,13 +161,13 @@ const resizeChart = () => {
 };
 
 watch(
-    () => mergedOptions.value,
-    (newVal) => {
-      if (chartInstance) {
-        chartInstance.setOption(newVal);
-      }
-    },
-    { deep: true },
+  () => mergedOptions.value,
+  (newVal) => {
+    if (chartInstance) {
+      chartInstance.setOption(newVal);
+    }
+  },
+  { deep: true },
 );
 
 onMounted(() => {

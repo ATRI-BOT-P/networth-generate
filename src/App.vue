@@ -4,7 +4,7 @@ import Header from './components/Header.vue';
 import Typer from './components/Typer.vue';
 import MainContent from './components/MainContent.vue';
 import localforage from 'localforage';
-import {data, load, loadData} from './data';
+import { data, load, loadData } from './data';
 import { useRoute } from 'vue-router';
 
 localforage.config({
@@ -21,12 +21,16 @@ function getSessionKey() {
   return sessionID ? `nw_${sessionID}` : 'nw';
 }
 
-const interval = setInterval(async () => {
-  await loadData(getSessionKey());
-}, 0, 0);
+const interval = setInterval(
+  async () => {
+    await loadData(getSessionKey());
+  },
+  0,
+  0,
+);
 
 if (load) {
-  clearInterval(interval)
+  clearInterval(interval);
 }
 
 onMounted(async () => {
@@ -57,8 +61,7 @@ const backGroundStyle = computed((): CSSProperties => {
 </template>
 
 <style lang="scss">
-
-@use "font/index";
+@use 'font/index';
 
 html,
 body {

@@ -50,7 +50,7 @@ defineProps<{
   flex-shrink: 0;
   gap: 12px;
   white-space: nowrap;
-  font-family: Regular,sans-serif;
+  font-family: Regular, sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
@@ -67,7 +67,7 @@ defineProps<{
 }
 
 .title {
-  font-family: Regular,sans-serif;
+  font-family: Regular, sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
