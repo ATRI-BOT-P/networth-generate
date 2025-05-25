@@ -8,16 +8,16 @@ const props = defineProps<ItemData>();
 const nameChars = computed(() => utils.parseMinecraftStyledText(props.name));
 
 const rarityColors: RarityColors = {
-  COMMON: '#CCCCCC', // 原: #FFFFFF
-  UNCOMMON: '#44CC44', // 原: #55FF55
-  RARE: '#4444CC', // 原: #5555FF
-  EPIC: '#880088', // 原: #AA00AA
-  LEGENDARY: '#CC8800', // 原: #FFAA00
-  MYTHIC: '#CC44CC', // 原: #FF55FF
-  DIVINE: '#44CCCC', // 原: #55FFFF
-  SPECIAL: '#CC4444', // 原: #FF5555
-  VERY_SPECIAL: '#CC4444', // 原: #FF5555
-  ULTIMATE: '#CC4444', // 原: #FF5555
+  COMMON: '#CCCCCC',
+  UNCOMMON: '#44CC44',
+  RARE: '#4444CC',
+  EPIC: '#880088',
+  LEGENDARY: '#CC8800',
+  MYTHIC: '#CC44CC',
+  DIVINE: '#44CCCC',
+  SPECIAL: '#CC4444',
+  VERY_SPECIAL: '#CC4444',
+  ULTIMATE: '#CC4444',
 };
 
 const nextRarityMap: RarityMap = {
@@ -37,14 +37,7 @@ const backgroundGradientStyle = computed(() => {
   if (!props.rarity) return {};
 
   let currentColor = rarityColors[props.rarity];
-  let nextColor: string;
-
-  if (props.isUpgraded) {
-    nextColor = rarityColors[nextRarityMap[props.rarity]];
-  } else {
-    nextColor = rarityColors[props.rarity];
-  }
-
+  let nextColor: string = props.isUpgraded ? rarityColors[nextRarityMap[props.rarity]] : currentColor;
   return {
     background: `linear-gradient(80deg, ${currentColor}C0 50%, ${nextColor}C0 99%)`,
     borderLeft: `7px solid ${currentColor}`,
@@ -59,13 +52,11 @@ const backgroundGradientStyle = computed(() => {
     </div>
     <div v-else class="item-placeholder"></div>
     <div class="item-content">
-      <div :class="{ upgraded: isUpgraded }" class="item-name">
-        <span class="text-wrapper">
-          <template v-for="item in nameChars">
-            <span :style="{ color: item.color }">{{ item.char }}</span>
-          </template>
-        </span>
-      </div>
+      <span class="text-wrapper">
+        <template v-for="item in nameChars">
+          <span :style="{ color: item.color }">{{ item.char }}</span>
+        </template>
+      </span>
       <div class="item-value">
         <span class="value-wrapper">{{ value }}</span>
       </div>
@@ -144,10 +135,6 @@ const backgroundGradientStyle = computed(() => {
   backdrop-filter: blur(14px);
   max-width: 100%;
   white-space: normal;
-}
-
-.upgraded {
-  font-weight: 700;
 }
 
 .item-value {
