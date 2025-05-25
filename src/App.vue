@@ -4,7 +4,7 @@ import Header from './components/Header.vue';
 import Typer from './components/Typer.vue';
 import MainContent from './components/MainContent.vue';
 import localforage from 'localforage';
-import { data, loadData } from './data';
+import {data, load, loadData} from './data';
 import { useRoute } from 'vue-router';
 
 localforage.config({
@@ -23,7 +23,11 @@ function getSessionKey() {
 
 const interval = setInterval(async () => {
   await loadData(getSessionKey());
-}, 1);
+}, 0, 0);
+
+if (load) {
+  clearInterval(interval)
+}
 
 onMounted(async () => {
   window.$localforage = localforage;

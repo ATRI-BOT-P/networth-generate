@@ -6,7 +6,7 @@ const defaultData: AppData = {
   userData: {
     title: 'ATRI-BOT',
     logo: './logo.png',
-    version: '0.0.0',
+    version: 'Calculator by SkyHelper | 1.0.2',
     playerHead: './logo.png',
     playerName: 'Me0wo',
     profileName: 'ATRI-BOT',
@@ -372,6 +372,10 @@ const defaultData: AppData = {
         '1.20 01:01',
       ],
     },
+    yAxis: {
+      min: 10000,
+      max: 160000,
+    },
     series: [
       {
         name: 'NW',
@@ -382,7 +386,7 @@ const defaultData: AppData = {
 };
 export let data = ref<AppData>(defaultData);
 
-let load = false;
+export let load = false;
 
 export async function loadData(key = 'nw') {
   if (load) {

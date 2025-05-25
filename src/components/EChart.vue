@@ -57,7 +57,7 @@ const defaultOptions: EChartsOption = {
         if (nAbs < 1_000) {
           result = nAbs.toFixed(2);
         } else if (nAbs < 1_000_000) {
-          result = (nAbs / 1_000).toFixed(2) + 'k';
+          result = (nAbs / 1_000).toFixed(2) + 'K';
         } else if (nAbs < 1_000_000_000) {
           result = (nAbs / 1_000_000).toFixed(2) + 'M';
         } else if (nAbs < 1_000_000_000_000) {

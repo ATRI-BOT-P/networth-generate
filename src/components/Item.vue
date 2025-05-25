@@ -42,12 +42,11 @@ const backgroundGradientStyle = computed(() => {
   if (props.isUpgraded) {
     nextColor = rarityColors[nextRarityMap[props.rarity]];
   } else {
-    currentColor = rarityColors[props.rarity];
     nextColor = rarityColors[props.rarity];
   }
 
   return {
-    background: `linear-gradient(80deg, ${currentColor}F0 50%, ${nextColor}F0 99%)`,
+    background: `linear-gradient(80deg, ${currentColor}C0 50%, ${nextColor}C0 99%)`,
     borderLeft: `7px solid ${currentColor}`,
   };
 });
@@ -81,7 +80,7 @@ const backgroundGradientStyle = computed(() => {
   padding: 8px 12px;
   border-radius: 16px;
   margin-bottom: 8px;
-  border-left: 4px solid;
+  border-left: 7px solid;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   width: 100%;
   box-sizing: border-box;

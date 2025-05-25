@@ -60,7 +60,7 @@ export interface RarityMap {
 }
 
 export interface EChartProps {
-  options?: EChartsOption | EChartProps | any;
+  options?: EChartsOption | EChartProps;
   width?: string;
   height?: string;
   top?: string;
